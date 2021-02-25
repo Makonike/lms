@@ -69,7 +69,7 @@ public class Course {
         return creditPoint;
     }
 
-    public void setCreditPoint(int creditPoint) {
+    public void setCreditPoint(double creditPoint) {
         this.creditPoint = creditPoint;
     }
 

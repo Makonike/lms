@@ -1,12 +1,10 @@
 package com.makonike.web;
 
-import com.alibaba.druid.util.DruidWebUtils;
-import com.makonike.entity.Student;
-import com.makonike.service.StudentService;
-import com.makonike.service.impl.StudentServiceImpl;
+import com.makonike.entity.Teacher;
+import com.makonike.service.TeacherService;
+import com.makonike.service.impl.TeacherServiceImpl;
 
 import javax.servlet.ServletException;
-import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
@@ -19,15 +17,9 @@ import java.util.Date;
  *
  * @author Makonike
  **/
-public class StudentServlet extends BaseServlet {
+public class TeacherServlet extends BaseServlet{
 
-    StudentService studentService = new StudentServiceImpl();
-
-    protected void seek(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        String id = req.getParameter("id");
-        Student student = studentService.seekStudent(id);
-        /* 未完成 */
-    }
+    TeacherService teacherService = new TeacherServiceImpl();
 
     protected void add(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         String id = req.getParameter("id");
@@ -35,7 +27,8 @@ public class StudentServlet extends BaseServlet {
         String sex = req.getParameter("sex");
         String bornDate = req.getParameter("bornDate");
         String depNo = req.getParameter("depNo");
-        int scores = Integer.parseInt(req.getParameter("scores"));
+        String jobTitle = req.getParameter("jobTitle");
+        String major = req.getParameter("major");
         SimpleDateFormat sdf = new SimpleDateFormat("yy-MM-dd");
 
         Date date = null;
@@ -45,20 +38,20 @@ public class StudentServlet extends BaseServlet {
             e.printStackTrace();
         }
 
-        Student student = new Student();
-        student.setId(id);
-        student.setName(name);
-        student.setSex(sex);
-        student.setBornDate(date);
-        student.setScores(scores);
-        student.setDepNo(depNo);
-
-        boolean b = studentService.addStudent(student);
+        Teacher teacher = new Teacher();
+        teacher.setId(id);
+        teacher.setName(name);
+        teacher.setSex(sex);
+        teacher.setBornDate(date);
+        teacher.setDepNo(depNo);
+        teacher.setJobTitle(jobTitle);
+        teacher.setMajor(major);
+        boolean b = teacherService.addTeacher(teacher);
         if(b){
             /* 未完成 */
-            System.out.println("添加成功");
+            System.out.println("添加成功！");
         }else{
-            System.out.println("添加失败");
+            System.out.println("添加失败！");
         }
         /* 未完成 */
 
@@ -66,16 +59,15 @@ public class StudentServlet extends BaseServlet {
 
     protected void delete(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         String id = req.getParameter("id");
-        boolean b = studentService.deleteStudent(id);
+        boolean b = teacherService.deleteStudent(id);
         if(b){
             /* 未完成 */
             System.out.println("删除成功！");
         }else{
-            System.out.println("删除失败");
+            System.out.println("删除失败！");
         }
     }
 
-    /* 未完成 */
     protected void update(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         //本来是想着设计修改信息的功能只能修改id（主键）以外的数据，
         // 呃 这里要结合网页前端去搞。。知识储备还不够。。所以暂时放弃了
@@ -84,7 +76,8 @@ public class StudentServlet extends BaseServlet {
         String sex = req.getParameter("sex");
         String bornDate = req.getParameter("bornDate");
         String depNo = req.getParameter("depNo");
-        int scores = Integer.parseInt(req.getParameter("scores"));
+        String jobTitle = req.getParameter("jobTitle");
+        String major = req.getParameter("major");
         SimpleDateFormat sdf = new SimpleDateFormat("yy-MM-dd");
 
         Date date = null;
@@ -94,22 +87,22 @@ public class StudentServlet extends BaseServlet {
             e.printStackTrace();
         }
 
-        Student student = new Student();
-        student.setId(id);
-        student.setName(name);
-        student.setSex(sex);
-        student.setBornDate(date);
-        student.setScores(scores);
-        student.setDepNo(depNo);
-
-        boolean b = studentService.updateStudent(student);
+        Teacher teacher = new Teacher();
+        teacher.setId(id);
+        teacher.setName(name);
+        teacher.setSex(sex);
+        teacher.setBornDate(date);
+        teacher.setDepNo(depNo);
+        teacher.setJobTitle(jobTitle);
+        teacher.setMajor(major);
+        boolean b = teacherService.updateTeacher(teacher);
         if(b){
             /* 未完成 */
-            System.out.println("修改成功");
+            System.out.println("添加成功！");
         }else{
-            System.out.println("修改失败");
+            System.out.println("修改失败！");
         }
         /* 未完成 */
-    }
 
+    }
 }

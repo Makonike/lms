@@ -23,6 +23,7 @@ public abstract class BaseServlet extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 
+        //获取参数method
         //识别客户端想要请求的方法
         String methodName = req.getParameter("method");
 

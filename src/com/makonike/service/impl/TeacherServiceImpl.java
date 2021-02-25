@@ -10,7 +10,7 @@ import com.makonike.entity.Teacher;
  * @author Makonike
  * @date 2021-02-24 17:20
  **/
-public class TeacherService implements com.makonike.service.TeacherService {
+public class TeacherServiceImpl implements com.makonike.service.TeacherService {
     private TeacherDao dao = new TeacherDaoImpl();
 
     @Override

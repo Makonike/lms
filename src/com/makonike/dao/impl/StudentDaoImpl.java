@@ -63,8 +63,8 @@ public class StudentDaoImpl extends BaseDao implements StudentDao {
     @Override
     public int updateStudent(Student student) {
         //language=MySQL
-        String sql = "update lms2.student set `name`=?,`sex`=?,`bornDate`=?,`scores`=?,`depNo`=? where `id` = ? ";
-        return update(sql,student.getName(),student.getSex(),student.getBornDate(),student.getScores(),student.getDepNo(),student.getId());
+        String sql = "update lms2.student set `id`=?,`name`=?,`sex`=?,`bornDate`=?,`scores`=?,`depNo`=? where `id` = ? ";
+        return update(sql,student.getId(),student.getName(),student.getSex(),student.getBornDate(),student.getScores(),student.getDepNo(),student.getId());
     }
 
 
