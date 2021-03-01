@@ -5,6 +5,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
+import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
 
 /**
@@ -30,12 +31,20 @@ public abstract class BaseServlet extends HttpServlet {
         if(methodName == null || methodName.trim().isEmpty()){
             throw new RuntimeException("获取的参数为空！");
         }
-
+        Method method = null;
         try {
-            Method method = this.getClass().getDeclaredMethod(methodName,HttpServletRequest.class,HttpServletResponse.class);
+            method = this.getClass().getDeclaredMethod(methodName,HttpServletRequest.class,HttpServletResponse.class);
+            method.invoke(this,req,resp);
         } catch (Exception e) {
             e.printStackTrace();
             throw new RuntimeException("你要调用的方法" + methodName +"不存在");
+        }
+
+        //调用method方法
+        try {
+            method.invoke(this,req,resp);
+        } catch (Exception e) {
+            e.printStackTrace();
         }
 
     }

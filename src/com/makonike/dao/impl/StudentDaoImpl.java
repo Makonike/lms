@@ -56,7 +56,7 @@ public class StudentDaoImpl extends BaseDao implements StudentDao {
     /**
      * 更改学生信息
      * @param student
-     * @return int int>0表示更改成功，反之则更改失败
+     * @return int 返回值大于0表示更改成功，反之则更改失败
      * @author Makonike
      * @date 2021/2/24 1:33
      */
