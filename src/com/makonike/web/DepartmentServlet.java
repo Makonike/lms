@@ -5,6 +5,7 @@ import com.makonike.service.DepartmentService;
 import com.makonike.service.impl.DepartmentServiceImpl;
 
 import javax.servlet.ServletException;
+import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
@@ -14,6 +15,7 @@ import java.io.IOException;
  * @author Makonike
  * @date 2021-02-25 11:56
  **/
+@WebServlet(name = "DepartmentServlet",value = "/departmentServlet")
 public class DepartmentServlet extends BaseServlet{
 
     DepartmentService departmentService = new DepartmentServiceImpl();

@@ -35,17 +35,11 @@ public abstract class BaseServlet extends HttpServlet {
         try {
             // this指继承自BaseServlet的、与所请求的url相匹配的Servlet
             method = this.getClass().getDeclaredMethod(methodName,HttpServletRequest.class,HttpServletResponse.class);
+            //调用method方法
+            method.invoke(this,req,resp);
         } catch (Exception e) {
             e.printStackTrace();
             throw new RuntimeException("你要调用的方法" + methodName +"不存在");
         }
-
-        //调用method方法
-        try {
-            method.invoke(this,req,resp);
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-
     }
 }

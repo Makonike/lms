@@ -5,6 +5,7 @@ import com.makonike.service.TeacherService;
 import com.makonike.service.impl.TeacherServiceImpl;
 
 import javax.servlet.ServletException;
+import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
@@ -17,6 +18,7 @@ import java.util.Date;
  *
  * @author Makonike
  **/
+@WebServlet(name = "TeacherServlet",value = "/teacherServlet")
 public class TeacherServlet extends BaseServlet{
 
     TeacherService teacherService = new TeacherServiceImpl();
