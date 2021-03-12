@@ -5,6 +5,8 @@ import com.makonike.dao.impl.StudentDaoImpl;
 import com.makonike.entity.Student;
 import com.makonike.service.StudentService;
 
+import java.util.List;
+
 /**
  * 业务逻辑实现层 - Student
  *
@@ -13,6 +15,19 @@ import com.makonike.service.StudentService;
  **/
 public class StudentServiceImpl implements StudentService {
     private StudentDao dao = new StudentDaoImpl();
+
+    /**
+     * 显示所有学生
+     * @param
+     * @return void
+     * @author Makonike
+     * @date 2021/3/10 23:03
+     */
+
+    @Override
+    public List<Student> findAllStudent() {
+        return dao.findAllStudent();
+    }
 
     /**
      * 添加学生信息

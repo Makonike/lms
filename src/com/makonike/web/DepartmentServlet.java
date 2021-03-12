@@ -18,7 +18,7 @@ import java.io.IOException;
 @WebServlet(name = "DepartmentServlet",value = "/departmentServlet")
 public class DepartmentServlet extends BaseServlet{
 
-    DepartmentService departmentService = new DepartmentServiceImpl();
+    private DepartmentService departmentService = new DepartmentServiceImpl();
 
     protected void add(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         String depNo = req.getParameter("depNo");

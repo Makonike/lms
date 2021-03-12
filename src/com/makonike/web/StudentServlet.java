@@ -11,24 +11,36 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
+import java.io.PrintWriter;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
+import java.util.List;
 
 /**
- * 因为来不及学jsp，没做前端页面，Servlet部分就先放下了
- *
  * @author Makonike
  **/
 @WebServlet(name = "StudentServlet",value = "/studentServlet")
 public class StudentServlet extends BaseServlet {
 
-    StudentService studentService = new StudentServiceImpl();
+    private StudentService studentService = new StudentServiceImpl();
+
+    protected void findAll(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+        List<Student> allStudent = studentService.findAllStudent();
+        req.setAttribute("allStudent", allStudent);
+        req.getRequestDispatcher(  "/showAllStudent.jsp").forward(req,resp);
+    }
 
     protected void seek(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         String id = req.getParameter("id");
         Student student = studentService.seekStudent(id);
-        /* 未完成 */
+        if(student==null){
+            PrintWriter out=resp.getWriter();
+            out.print("<script>alert('查找失败！未找到该学生信息');history.go(-1);</script>");
+        }else{
+            req.setAttribute("oneStudent",student);
+            req.getRequestDispatcher("/showOneStudent.jsp").forward(req,resp);
+        }
     }
 
     protected void add(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
@@ -57,30 +69,28 @@ public class StudentServlet extends BaseServlet {
 
         boolean b = studentService.addStudent(student);
         if(b){
-            /* 未完成 */
-            System.out.println("添加成功");
+            PrintWriter out=resp.getWriter();
+            out.print("<script>alert('添加成功！');history.go(-1);</script>");
         }else{
-            System.out.println("添加失败");
+            PrintWriter out=resp.getWriter();
+            out.print("<script>alert('添加失败！');history.go(-1);</script>");
         }
-        /* 未完成 */
-
     }
 
     protected void delete(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         String id = req.getParameter("id");
         boolean b = studentService.deleteStudent(id);
         if(b){
-            /* 未完成 */
-            System.out.println("删除成功！");
+            PrintWriter out=resp.getWriter();
+            out.print("<script>alert('删除成功！');history.go(-1);</script>");
         }else{
-            System.out.println("删除失败");
+            PrintWriter out=resp.getWriter();
+            out.print("<script>alert('删除失败！');history.go(-1);</script>");
         }
     }
 
     /* 未完成 */
     protected void update(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        //本来是想着设计修改信息的功能只能修改id（主键）以外的数据，
-        // 呃 这里要结合网页前端去搞。。知识储备还不够。。所以暂时放弃了
         String id = req.getParameter("id");
         String name = req.getParameter("name");
         String sex = req.getParameter("sex");
@@ -106,12 +116,12 @@ public class StudentServlet extends BaseServlet {
 
         boolean b = studentService.updateStudent(student);
         if(b){
-            /* 未完成 */
-            System.out.println("修改成功");
+            PrintWriter out=resp.getWriter();
+            out.print("<script>alert('修改成功！');history.go(-1);</script>");
         }else{
-            System.out.println("修改失败");
+            PrintWriter out=resp.getWriter();
+            out.print("<script>alert('修改失败！');history.go(-1);</script>");
         }
-        /* 未完成 */
     }
 
 }

@@ -21,7 +21,7 @@ import java.util.Date;
 @WebServlet(name = "TeacherServlet",value = "/teacherServlet")
 public class TeacherServlet extends BaseServlet{
 
-    TeacherService teacherService = new TeacherServiceImpl();
+    private TeacherService teacherService = new TeacherServiceImpl();
 
     protected void add(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         String id = req.getParameter("id");
@@ -56,7 +56,6 @@ public class TeacherServlet extends BaseServlet{
             System.out.println("添加失败！");
         }
         /* 未完成 */
-
     }
 
     protected void delete(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {

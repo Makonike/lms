@@ -15,6 +15,11 @@ public class StudentDaoTest {
     private StudentDao studentDao = new StudentDaoImpl();
 
     @Test
+    public void findAllStudent(){
+        System.out.println(studentDao.findAllStudent());
+    }
+
+    @Test
     public void queryStudentByid() {
         System.out.println(studentDao.queryStudentByid("1001"));
     }

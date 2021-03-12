@@ -20,7 +20,7 @@ import java.util.Date;
  **/
 @WebServlet(name = "CourseServlet",value = "/courseServlet")
 public class CourseServlet extends BaseServlet{
-    CourseService courseService = new CourseServiceImpl();
+    private CourseService courseService = new CourseServiceImpl();
 
     protected void add(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         String id = req.getParameter("id");

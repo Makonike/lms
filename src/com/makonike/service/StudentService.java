@@ -2,6 +2,8 @@ package com.makonike.service;
 
 import com.makonike.entity.Student;
 
+import java.util.List;
+
 /**
  * 业务逻辑层接口层 - Student
  *
@@ -9,6 +11,16 @@ import com.makonike.entity.Student;
  * @date 2021-02-24 0:42
  **/
 public interface StudentService{
+
+    /**
+     * 显示所有学生
+     * @param
+     * @return void
+     * @author Makonike
+     * @date 2021/3/10 23:02
+     */
+
+    List<Student> findAllStudent();
 
     /**
      * 添加学生

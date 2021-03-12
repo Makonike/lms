@@ -5,6 +5,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
+import java.io.PrintWriter;
 import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
 
@@ -23,7 +24,9 @@ public abstract class BaseServlet extends HttpServlet {
 
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-
+        resp.setCharacterEncoding("UTF-8");
+        resp.setContentType("text/html; charset=utf-8");
+        req.setCharacterEncoding("UTF-8");
         //获取参数method
         //识别客户端想要请求的方法
         String methodName = req.getParameter("method");
@@ -39,7 +42,9 @@ public abstract class BaseServlet extends HttpServlet {
             method.invoke(this,req,resp);
         } catch (Exception e) {
             e.printStackTrace();
-            throw new RuntimeException("你要调用的方法" + methodName +"不存在");
+//            throw new RuntimeException("你要调用的方法" + methodName +"不存在");
+            PrintWriter out=resp.getWriter();
+            out.print("<script>alert('请求失败！');history.go(-1);</script>");
         }
     }
 }

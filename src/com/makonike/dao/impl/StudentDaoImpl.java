@@ -3,6 +3,8 @@ package com.makonike.dao.impl;
 import com.makonike.dao.StudentDao;
 import com.makonike.entity.Student;
 
+import java.util.List;
+
 /**
  * 持久化dao接口的实现类 - Student
  *
@@ -10,6 +12,22 @@ import com.makonike.entity.Student;
  * @date 2021-02-23 16:17
  **/
 public class StudentDaoImpl extends BaseDao implements StudentDao {
+
+    /**
+     * 显示所有学生
+     * @param
+     * @return 返回一个学生List集合
+     * @author Makonike
+     * @date 2021/3/10 22:52
+     */
+
+    @Override
+    public List<Student> findAllStudent() {
+        //language=MySQL
+        String sql = "select `id`, `name`, `sex`,`bornDate`, `scores`, `depNo` from lms2.student order by `id` asc ";
+        return queryForList(Student.class, sql);
+    }
+
     /**
      * 根据学号查询一个学生的信息
      * @param id

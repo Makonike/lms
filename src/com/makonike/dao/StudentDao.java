@@ -2,6 +2,8 @@ package com.makonike.dao;
 
 import com.makonike.entity.Student;
 
+import java.util.List;
+
 /**
  * 持久化接口 - Student
  *
@@ -10,6 +12,15 @@ import com.makonike.entity.Student;
  **/
 public interface StudentDao {
 
+    /**
+     * 显示所有学生
+     * @param
+     * @return java.util.List<com.makonike.entity.Student>
+     * @author Makonike
+     * @date 2021/3/10 22:51
+     */
+
+    List<Student> findAllStudent();
 
     /**
      * 根据学号查询学生信息
