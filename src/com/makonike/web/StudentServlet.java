@@ -89,7 +89,6 @@ public class StudentServlet extends BaseServlet {
         }
     }
 
-    /* 未完成 */
     protected void update(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         String id = req.getParameter("id");
         String name = req.getParameter("name");

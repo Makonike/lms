@@ -33,9 +33,13 @@
     <tr>
         <td align="center">>>  <a href="./addStudent.jsp"> 增加 </a>  <<</td>
         <td align="center">>>  <a href="./deleteStudent.jsp"> 删除 </a>  <<</td>
-        <td align="center">>>  <a href="./index.jsp"> 返回 </a>  <<</td>
+        <td align="center">>>  <a href="./updateStudent.jsp"> 修改 </a>  <<</td>
     </tr>
-
+    <tr>
+        <td></td>
+        <td align="center">>>  <a href="./index.jsp"> 返回 </a>  <<</td>
+        <td></td>
+    </tr>
 
 </table>
 
