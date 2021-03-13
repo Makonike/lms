@@ -33,9 +33,11 @@ public class TeacherServlet extends BaseServlet{
         String id = req.getParameter("id");
         Teacher teacher = teacherService.seekTeacher(id);
         if(teacher==null){
+            //警告提示框
             PrintWriter out=resp.getWriter();
             out.print("<script>alert('查找失败！未找到该教职工信息');history.go(-1);</script>");
         }else{
+            //将查到的对象放入请求域中，并跳转至相应页面展示
             req.setAttribute("oneTeacher",teacher);
             req.getRequestDispatcher("/showOneTeacher.jsp").forward(req,resp);
         }
@@ -68,6 +70,7 @@ public class TeacherServlet extends BaseServlet{
         teacher.setMajor(major);
         boolean b = teacherService.addTeacher(teacher);
         if(b){
+            //警告提示框
             PrintWriter out=resp.getWriter();
             out.print("<script>alert('添加成功！');history.go(-1);</script>");
         }else{

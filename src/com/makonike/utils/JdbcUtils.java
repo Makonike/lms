@@ -14,7 +14,6 @@ import java.util.Properties;
  * JDBC工具类 使用Druid连接池
  *
  * @author Makonike
- * @date 2021-02-23 10:48
  **/
 public class JdbcUtils {
 

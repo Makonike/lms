@@ -14,8 +14,8 @@
     <script type="text/javascript">
         //把表单的action改为teacher.jsp
         function jumpBack() {
-            document.add.action = "teacher.jsp";
-            document.add.submit();
+            document.update.action = "teacher.jsp";
+            document.update.submit();
         }
     </script>
 
