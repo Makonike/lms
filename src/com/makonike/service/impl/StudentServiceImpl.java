@@ -19,7 +19,7 @@ public class StudentServiceImpl implements StudentService {
     /**
      * 显示所有学生
      * @param
-     * @return void
+     * @return 返回一个Student对象的List集合
      * @author Makonike
      * @date 2021/3/10 23:03
      */
@@ -46,7 +46,7 @@ public class StudentServiceImpl implements StudentService {
     }
 
     /**
-     * [方法描述]
+     * 通过学号查询学生信息
      * @param id
      * @return 返回null则说明不存在该学生，反之则返回该学生对象
      * @author Makonike
@@ -54,7 +54,7 @@ public class StudentServiceImpl implements StudentService {
      */
     @Override
     public Student seekStudent(String id) {
-        return dao.queryStudentByid(id);
+        return dao.queryStudentById(id);
     }
 
     /**
@@ -66,7 +66,7 @@ public class StudentServiceImpl implements StudentService {
      */
     @Override
     public boolean isExist(String id) {
-        return dao.queryStudentByid(id) != null;
+        return dao.queryStudentById(id) != null;
     }
 
     /**

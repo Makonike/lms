@@ -29,7 +29,7 @@ public interface StudentDao {
      * @author Makonike
      * @date 2021/2/23 16:06
      */
-    Student queryStudentByid(String id);
+    Student queryStudentById(String id);
 
 
     /**

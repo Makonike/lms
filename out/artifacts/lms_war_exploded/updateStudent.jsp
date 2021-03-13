@@ -24,7 +24,7 @@
 <br/>
 <h1 align="center">修改学生信息</h1>
 <br/>
-<form action="${pageContext.request.contextPath}/studentServlet?method=update" method="post" name="add">
+<form action="${pageContext.request.contextPath}/studentServlet?method=update" method="post" name="update">
     <table align="center" height="350">
         <tr>
             <td>学号：</td>

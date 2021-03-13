@@ -21,7 +21,7 @@ public class StudentDaoTest {
 
     @Test
     public void queryStudentByid() {
-        System.out.println(studentDao.queryStudentByid("1001"));
+        System.out.println(studentDao.queryStudentById("1001"));
     }
 
     @Test
@@ -36,6 +36,6 @@ public class StudentDaoTest {
 
     @Test
     public void updateStudent() {
-        System.out.println(studentDao.updateStudent(studentDao.queryStudentByid("1001")));
+        System.out.println(studentDao.updateStudent(studentDao.queryStudentById("1001")));
     }
 }

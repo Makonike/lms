@@ -15,7 +15,7 @@ public interface StudentService{
     /**
      * 显示所有学生
      * @param
-     * @return void
+     * @return 返回一个Student对象的List集合
      * @author Makonike
      * @date 2021/3/10 23:02
      */

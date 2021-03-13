@@ -21,7 +21,7 @@
   </tr>
 
   <tr>
-    <td align="center">>>  <a href="https://www.csdn.net/"> 教职工 </a>  <<</td>
+    <td align="center">>>  <a href="./teacher.jsp"> 教职工 </a>  <<</td>
   </tr>
 
   <tr>

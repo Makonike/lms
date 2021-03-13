@@ -8,27 +8,27 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
-    <title>删除学生</title>
+    <title>删除操作</title>
 </head>
 <body>
 <br/>
 <br/>
-<h1 align="center">删除学生</h1>
+<h1 align="center">删除教职工信息</h1>
 <br/>
 <br/>
 <br/>
 
-<form action="${pageContext.request.contextPath}/studentServlet?method=delete" method="post" name="delete">
+<form action="${pageContext.request.contextPath}/teacherServlet?method=delete" method="post" name="delete">
     <table align="center" height="50">
         <tr>
-            <td><label>学号：<input type="text" name="id" placeholder="请输入学生的学号"></label></td>
+            <td><label>教职工号：<input type="text" name="id" placeholder="请输入教职工号"></label></td>
             <td><input type="submit" value="提交" onclick=""></td>
         </tr>
     </table>
 
 </form>
 <p align="center">
-    <a href="./student.jsp"><button>返回</button></a>
+    <a href="./teacher.jsp"><button>返回</button></a>
 </p>
 
 

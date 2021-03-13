@@ -9,12 +9,12 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
-    <title>修改操作</title>
+    <title>添加操作</title>
 
     <script type="text/javascript">
-        //把表单的action改为student.jsp
+        //把表单的action改为teacher.jsp
         function jumpBack() {
-            document.add.action = "student.jsp";
+            document.add.action = "teacher.jsp";
             document.add.submit();
         }
     </script>
@@ -22,17 +22,17 @@
 </head>
 <body>
 <br/>
-<h1 align="center">修改学生信息</h1>
+<h1 align="center">添加教职工</h1>
 <br/>
-<form action="${pageContext.request.contextPath}/studentServlet?method=update" method="post" name="update">
+<form action="${pageContext.request.contextPath}/teacherServlet?method=add" method="post" name="add">
     <table align="center" height="350">
         <tr>
-            <td>学号：</td>
-            <td><label><input type="text" name="id" placeholder="请输入学生的学号"></label></td>
+            <td>教职工号：</td>
+            <td><label><input type="text" name="id" placeholder="请输入教职工号"></label></td>
         </tr>
         <tr>
             <td>姓名：</td>
-            <td><label><input type="text" name="name" placeholder="请输入学生的姓名"></label></td>
+            <td><label><input type="text" name="name" placeholder="请输入姓名"></label></td>
         </tr>
 
         <tr>
@@ -44,27 +44,33 @@
         </tr>
 
         <tr>
-            <td>入学成绩：</td>
-            <td><label><input type="text" name="scores" placeholder="请输入学生的入学成绩"></label></td>
-        </tr>
-
-        <tr>
             <td>出生日期：</td>
             <td><label><input type="date" name="bornDate"></label></td>
         </tr>
 
         <tr>
             <td>所在系号：</td>
-            <td><label><input type="text" name="depNo" placeholder="请输入学生所在系号"></label></td>
+            <td><label><input type="text" name="depNo" placeholder="请输入所在系号"></label></td>
         </tr>
+
+        <tr>
+            <td>职称：</td>
+            <td><label><input type="text" name="jobTitle" placeholder="请输入职称"></label></td>
+        </tr>
+
+        <tr>
+            <td>专业及教学方向：</td>
+            <td><label><input type="text" name="major" placeholder="请输入专业及教学方向"></label></td>
+        </tr>
+
         <tr>
             <label>
                 <td>
                     &nbsp;<input type="submit" value="提交">
                 </td>
                 <td>
-                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input type="reset" value="重置">
-                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                    <input type="reset" value="重置">
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                     <input type="button" value="返回" onclick="jumpBack()"/>
                 </td>
             </label>

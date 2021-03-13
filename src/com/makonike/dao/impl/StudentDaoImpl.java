@@ -37,7 +37,7 @@ public class StudentDaoImpl extends BaseDao implements StudentDao {
      */
 
     @Override
-    public Student queryStudentByid(String id) {
+    public Student queryStudentById(String id) {
         //language=MySQL
         String sql = "select `id`, `name`, `sex`, `bornDate`, `scores`, `depNo` from lms2.student where id = ?";
         return queryForOne(Student.class,sql,id);
